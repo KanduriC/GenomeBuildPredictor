@@ -11,6 +11,10 @@ See the installation instructions below. The package contains two main functions
 
 #### Examples
 
+For this example, we use this bed file : 
+
+http://hgdownload.cse.ucsc.edu/goldenpath/hg19/encodeDCC/wgEncodeBroadHmm/wgEncodeBroadHmmGm12878HMM.bed.gz
+
 ```
 library(GenomeBuildPredictor)
 mytrack <- import_genomic_track('wgEncodeBroadHmmGm12878HMM.bed',file_format = 'bed')
