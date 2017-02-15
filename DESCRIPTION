@@ -1,0 +1,16 @@
+Package: GenomeBuildPredictor
+Title: Predicts the genome build version of genomic track files
+Version: 0.1
+Authors@R: person("Chakravarthi", "Kanduri", email =
+        "chakra.kanduri@gmail.com", role = c("aut", "cre"))
+Author: Chakravarthi Kanduri
+Maintainer: Chakravarthi Kanduri <chakra.kanduri@gmail.com>
+Description: This tool attempts to predict the genome build version of genomic track files based on the unqiue sequence coordinates of different build versions.
+Depends: R (>= 3.3.2)
+License: Artistic-2.0
+VignetteBuilder: knitr
+Suggests: knitr, rmarkdown, testthat
+biocViews: Software
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
