@@ -21,6 +21,12 @@ predict_genome_build <- function(input_track,species=c("human", "mouse", "drosop
     stop("species can only be one among 'human', 'mouse' and 'drosophila'")
   }
   species <- match.arg(species)
-  switch(species,human={predicted_build <- suppressWarnings(predict_human_build(input_track))},mouse={predicted_build <- suppressWarnings(predict_mouse_build(input_track))},drosophila={predicted_build <- suppressWarnings(predict_drosophila_build(input_track))})
+  switch(species, human = {
+    predicted_build <- suppressWarnings(predict_human_build(input_track))
+    }, mouse = {
+      predicted_build <- suppressWarnings(predict_mouse_build(input_track))
+      },drosophila = {
+        predicted_build <- suppressWarnings(predict_drosophila_build(input_track))
+        })
   return(predicted_build)
 }

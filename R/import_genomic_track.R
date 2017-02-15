@@ -18,7 +18,7 @@ import_genomic_track <- function(track_file,file_format){
     stop("need to provide the genomic track file format")
   }
 
-  input_track <- import(track_file, file_format)
+  input_track <- import(track_file, format=file_format)
   if(length(grep('chr', head(seqnames(input_track)),ignore.case=T))!=6){
     stop("the sequence names should have a chr prefix like chr1, chr2")
   }
