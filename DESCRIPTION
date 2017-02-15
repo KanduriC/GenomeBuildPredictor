@@ -8,7 +8,6 @@ Maintainer: Chakravarthi Kanduri <chakra.kanduri@gmail.com>
 Description: This tool attempts to predict the genome build version of genomic track files based on the unqiue sequence coordinates of different build versions.
 Depends: R (>= 3.3.2)
 License: Artistic-2.0
-VignetteBuilder: knitr
 Suggests: GenomicRanges, rtracklayer
 biocViews: Software
 Encoding: UTF-8
