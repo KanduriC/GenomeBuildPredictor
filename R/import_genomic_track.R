@@ -9,7 +9,7 @@
 #' mybedfile <- import_genomic_track('mybedfile.bed',format='bed')
 #' @export
 
-import_genomic_track <- function(track_file,file_format){
+import_genomic_track <- function(track_file,file_format,is.Peak){
   library(rtracklayer)
   if (missing(track_file)) {
     stop("No genomic track file provided as input")
@@ -17,8 +17,23 @@ import_genomic_track <- function(track_file,file_format){
   if (missing(file_format)) {
     stop("need to provide the genomic track file format")
   }
+  if (missing(is.Peak)) {
 
   input_track <- import(track_file, format=file_format)
+    } else {
+    if (is.Peak=='narrowPeak'){
+      narrowPeak_cols <- c(signalValue = "numeric", pValue = "numeric",
+           qValue = "numeric", peak = "integer")
+    input_track <- import(track_file, format = "BED",
+                            extraCols = narrowPeak_cols)
+    }
+    if (is.Peak=='broadPeak'){
+      broadPeak_cols <- c(signalValue = "numeric", pValue = "numeric",
+                               qValue = "numeric")
+      input_track <- import(track_file, format = "BED",
+                            extraCols = broadPeak_cols)
+    }
+    }
   if(length(grep('chr', head(seqnames(input_track)),ignore.case=T))!=6){
     stop("the sequence names should have a chr prefix like chr1, chr2")
   }

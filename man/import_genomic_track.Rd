@@ -4,7 +4,7 @@
 \alias{import_genomic_track}
 \title{Imports a genomic track file using the import functionality in rtracklayer package.}
 \usage{
-import_genomic_track(track_file, file_format)
+import_genomic_track(track_file, file_format, is.Peak)
 }
 \arguments{
 \item{track_file}{Character string indicating the filename of input genomic track file}
