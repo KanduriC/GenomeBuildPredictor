@@ -24,13 +24,13 @@ import_genomic_track <- function(track_file,file_format,is.Peak){
     if (is.Peak=='narrowPeak'){
       narrowPeak_cols <- c(signalValue = "numeric", pValue = "numeric",
            qValue = "numeric", peak = "integer")
-    input_track <- import(track_file, format = "BED",
+    input_track <- import(track_file, format = file_format,
                             extraCols = narrowPeak_cols)
     }
     if (is.Peak=='broadPeak'){
       broadPeak_cols <- c(signalValue = "numeric", pValue = "numeric",
                                qValue = "numeric")
-      input_track <- import(track_file, format = "BED",
+      input_track <- import(track_file, format = file_format,
                             extraCols = broadPeak_cols)
     }
     }
