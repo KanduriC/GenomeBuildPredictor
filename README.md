@@ -7,7 +7,7 @@ This tool builds upon the strengths of existing Bioconductor packages that enabl
 
 ### Tool usage
 
-See the installation instructions below. The package contains two main functions `import_genomic_track` and `predict_genome_build`. `import_genomic_track` is a wrapper around rtracklayer's import function that allows the import of bed, gff and wig files as GRanges object. In addition, the `is.Peak` argument in import function takes two possible values `narrowPeak` or `broadPeak`, which allows the input of narrowPeak and broadPeak files (see in examples below).  `predict_genome_build` attempts to predict the genome build currently for three species: human, mouse, drosophila. For the specific arguments, type `?predict_genome_build` or `?import_genomic_track` in R console.
+See the installation instructions below. The package contains two main functions `import_genomic_track` and `predict_genome_build`. `import_genomic_track` is a wrapper around rtracklayer's import function that allows the import of bed, gff and wig files as GRanges object. In addition, `import_genomic_track` allows import of `narrowPeak` or `broadPeak`, files (see in examples below).  `predict_genome_build` attempts to predict the genome build currently for three species: human, mouse, drosophila. For the specific arguments, type `?predict_genome_build` or `?import_genomic_track` in R console.
 
 #### Examples
 
@@ -20,10 +20,10 @@ library(GenomeBuildPredictor)
 mytrack <- import_genomic_track('wgEncodeBroadHmmGm12878HMM.bed',file_format = 'bed')
 predict_genome_build(mytrack,species = 'human')
 ```
-To import narrowPeak or broadPeak files, use the `is.Peak` argument that takes either `narrowPeak` or `broadPeak` as input.
+To import narrowPeak or broadPeak files:
 
 ```
-mytrack <- import_genomic_track('toy_narrowPeak_file.bed',file_format = 'bed',is.Peak='narrowPeak')
+mytrack <- import_genomic_track('toy_narrowPeak_file.bed',file_format = 'narrowPeak')
 predict_genome_build(mytrack,species = 'human')
 ```
 
