@@ -9,7 +9,7 @@
 #' mybedfile <- import_genomic_track('mybedfile.bed',format='bed')
 #' @export
 
-import_genomic_track <- function(track_file,file_format,is.Peak){
+import_genomic_track <- function(track_file,file_format){
   library(rtracklayer)
   if (missing(track_file)) {
     stop("No genomic track file provided as input")
@@ -17,20 +17,20 @@ import_genomic_track <- function(track_file,file_format,is.Peak){
   if (missing(file_format)) {
     stop("need to provide the genomic track file format")
   }
-  if (missing(is.Peak)) {
+  if (file_format %in% c('gff','gff1','gff2','gff3','bed','wig', 'ucsc')) {
 
   input_track <- import(track_file, format=file_format)
     } else {
-    if (is.Peak=='narrowPeak'){
+    if (file_format %in% c('narrowPeak')){
       narrowPeak_cols <- c(signalValue = "numeric", pValue = "numeric",
            qValue = "numeric", peak = "integer")
-    input_track <- import(track_file, format = file_format,
+    input_track <- import(track_file, format = "bed",
                             extraCols = narrowPeak_cols)
     }
-    if (is.Peak=='broadPeak'){
+    if (file_format %in% c('broadPeak')){
       broadPeak_cols <- c(signalValue = "numeric", pValue = "numeric",
                                qValue = "numeric")
-      input_track <- import(track_file, format = file_format,
+      input_track <- import(track_file, format = "bed",
                             extraCols = broadPeak_cols)
     }
     }
