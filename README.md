@@ -1,9 +1,11 @@
 # GenomeBuildPredictor
-Predicts the genome build version of genomic track files, if any of the sequence coordinates in the input track file are unique to a genome build version
+Predicts the genome build version of genomic track files, if any of the sequence coordinates in the input track file are unique to a genome build version.
 
 ### Introduction
 
-This tool builds upon the strengths of existing Bioconductor packages that enable scalable genomic analyses to predict the genome build version of genomic track files. For more information about scalable genomics with Bioconductor, see references [1,2].
+Genomic locations are represented as coordinates on a specific genome build version, but the build information is frequently missing when coordinates are provided. This tool accompanies our manuscript that discussed the importance of genome build information in correctly interpreting and analysing the genomic track files. Although not a substitute for the best practices, this tool attempts to predict the genome build version of genomic track files, if any of the sequence coordinates in the input track file are unique to a genome build version.
+
+This tool builds upon the strengths of existing Bioconductor packages that enable scalable genomic analyses to predict the genome build version of genomic track files. For more information about scalable genomics with Bioconductor, see references [1,2]. As an alternative to this R package, we also provide the tool through a web-interface, which supports more species. For more information, see here: http://hyperbrowser.uio.no/refgenome
 
 ### Tool usage
 
@@ -27,9 +29,9 @@ mytrack <- import_genomic_track('toy_narrowPeak_file.bed',file_format = 'bed',is
 predict_genome_build(mytrack,species = 'human')
 ```
 
-### Installation instructions (for now)
+### Installation instructions
 
-Firstly, this tool requires the latest version of R. Please update your R version if it is not 3.3.2. Secondly, I haven't tested the portability yet. At the moment, [download the repository here](https://github.com/KanduriC/GenomeBuildPredictor/archive/master.zip), unzip it, and install from source as follows: `install.packages('GenomeBuildPredictor-master/',repos=NULL,type="source")`
+This tool requires R version not older than 3.3.2. [Download the repository here](https://github.com/KanduriC/GenomeBuildPredictor/archive/master.zip), unzip it, and install from source as follows: `install.packages('GenomeBuildPredictor-master/',repos=NULL,type="source")`
 
 #### Troubleshooting:
 
