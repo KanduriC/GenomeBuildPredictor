@@ -11,6 +11,8 @@ This tool builds upon the strengths of existing Bioconductor packages that enabl
 
 See the installation instructions below. The package contains two main functions `import_genomic_track` and `predict_genome_build`. `import_genomic_track` is a wrapper around rtracklayer's import function that allows the import of bed, gff and wig files as GRanges object. In addition, `import_genomic_track` allows import of `narrowPeak` or `broadPeak`, files (see in examples below).  `predict_genome_build` attempts to predict the genome build currently for three species: human, mouse, drosophila. For the specific arguments, type `?predict_genome_build` or `?import_genomic_track` in R console.
 
+** Note on file formats: ** As stated above, the tool accepts any of the standard file formats like BED, GFF, WIG, broadPeak and narrowPeak. Other file formats need to be converted to any of the accepted file formats prior to running the tool.  
+
 #### Examples
 
 For this example, we use this bed file : 
